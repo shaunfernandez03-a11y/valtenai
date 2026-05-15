@@ -7,7 +7,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "wouter";
 
-const AUDIT_URL = "https://forms.gle/ShiULd7toVTmDeuMA";
+const AUDIT_URL = "https://calendar.app.google/5VqGMRsABdJJZMdX8";
 
 const SERVICES_ITEMS = [
   { label: "AI Phone Assistant",          href: "/services/ai-phone-assistant", desc: "Never miss a call or booking" },
@@ -174,6 +174,7 @@ export default function Navbar() {
 
   const plainLinks = [
     { label: "How It Works", href: "/#how-it-works" },
+    { label: "About",        href: "/#about" },
     { label: "Pricing",      href: "/#pricing" },
     { label: "FAQ",          href: "/#faq" },
   ];
@@ -227,7 +228,7 @@ export default function Navbar() {
             ))}
 
             <a href={AUDIT_URL} target="_blank" rel="noopener noreferrer" onClick={(e) => { e.preventDefault(); window.open(AUDIT_URL, "_blank", "noopener,noreferrer"); }} className="btn-gold" style={{ padding: "0.55rem 1.3rem", fontSize: "0.72rem" }}>
-              Free Audit
+              Book Free Call
             </a>
           </div>
 
@@ -285,7 +286,7 @@ export default function Navbar() {
             ))}
 
             <a href={AUDIT_URL} target="_blank" rel="noopener noreferrer" onClick={(e) => { e.preventDefault(); window.open(AUDIT_URL, "_blank", "noopener,noreferrer"); }} className="btn-gold" style={{ marginTop: "1.25rem", display: "inline-flex" }}>
-              Book Free Audit
+              Book Free Call →
             </a>
           </div>
         )}

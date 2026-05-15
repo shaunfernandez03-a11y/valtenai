@@ -3,7 +3,7 @@ import DataStreamBackground from "@/components/DataStreamBackground";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const AUDIT_URL = "https://forms.gle/ShiULd7toVTmDeuMA";
+const AUDIT_URL = "https://calendar.app.google/5VqGMRsABdJJZMdX8";
 
 const features = [
   { icon: "📅", title: "Automated Posting", desc: "Content planned, written and scheduled weeks in advance. Your social channels stay active and consistent without you lifting a finger." },

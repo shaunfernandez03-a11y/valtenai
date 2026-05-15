@@ -3,7 +3,7 @@ import DataStreamBackground from "@/components/DataStreamBackground";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const AUDIT_URL = "https://forms.gle/ShiULd7toVTmDeuMA";
+const AUDIT_URL = "https://calendar.app.google/5VqGMRsABdJJZMdX8";
 
 const features = [
   { icon: "🎯", title: "Hyper-Local Targeting", desc: "Ads shown only to people searching within your suburb, postcode or radius — so every dollar reaches a potential customer, not someone 50km away." },

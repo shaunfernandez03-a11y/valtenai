@@ -174,10 +174,10 @@ export default function HowItWorksSection() {
         {/* CTA */}
         <div style={{ textAlign: "center", marginTop: "3rem" }} className="reveal">
           <a
-            href="https://forms.gle/ShiULd7toVTmDeuMA"
+            href="https://calendar.app.google/5VqGMRsABdJJZMdX8"
             target="_blank"
             rel="noopener noreferrer"
-            onClick={(e) => { e.preventDefault(); window.open("https://forms.gle/ShiULd7toVTmDeuMA", "_blank", "noopener,noreferrer"); }}
+            onClick={(e) => { e.preventDefault(); window.open("https://calendar.app.google/5VqGMRsABdJJZMdX8", "_blank", "noopener,noreferrer"); }}
             className="btn-gold"
           >
             Start With a Free Audit

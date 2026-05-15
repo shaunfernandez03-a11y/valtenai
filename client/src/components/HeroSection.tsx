@@ -11,7 +11,7 @@ import { useTheme } from "../contexts/ThemeContext";
 import HeroCanvas from "./HeroCanvas";
 
 const LOGO_URL = "/logo.png";
-const AUDIT_URL = "https://forms.gle/ShiULd7toVTmDeuMA";
+const AUDIT_URL = "https://calendar.app.google/5VqGMRsABdJJZMdX8";
 
 const bullets = [
   "GET FOUND ON GOOGLE FIRST",
@@ -179,7 +179,7 @@ export default function HeroSection() {
             fontStyle: "italic",
           }}
         >
-          Keeping you ahead of the curve
+          AI systems that save you time, win more bookings, and grow your business — on autopilot.
         </p>
 
         {/* Bullet points */}
@@ -234,7 +234,7 @@ export default function HeroSection() {
             className="btn-gold"
             style={{ fontSize: "0.78rem", padding: "1rem 2.4rem" }}
           >
-            Book Your Free 15-Min Audit
+            Book Your Free 15-Min Call
             <span style={{ fontSize: "1rem" }}>→</span>
           </a>
         </div>

@@ -3,7 +3,7 @@ import NeuralNetworkBackground from "@/components/NeuralNetworkBackground";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const AUDIT_URL = "https://forms.gle/ShiULd7toVTmDeuMA";
+const AUDIT_URL = "https://calendar.app.google/5VqGMRsABdJJZMdX8";
 
 const features = [
   { icon: "⚡", title: "Instant Response", desc: "Replies to website visitors in under a second — before they bounce to a competitor. First impressions converted into enquiries." },

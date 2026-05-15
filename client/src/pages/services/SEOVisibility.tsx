@@ -3,7 +3,7 @@ import NeuralNetworkBackground from "@/components/NeuralNetworkBackground";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const AUDIT_URL = "https://forms.gle/ShiULd7toVTmDeuMA";
+const AUDIT_URL = "https://calendar.app.google/5VqGMRsABdJJZMdX8";
 
 const features = [
   { icon: "📍", title: "Google Business Profile", desc: "Fully optimised profile with photos, posts, services and Q&A — so you dominate the local map pack and get found before your competitors." },

@@ -3,7 +3,7 @@ import DataStreamBackground from "@/components/DataStreamBackground";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const AUDIT_URL = "https://forms.gle/ShiULd7toVTmDeuMA";
+const AUDIT_URL = "https://calendar.app.google/5VqGMRsABdJJZMdX8";
 
 const features = [
   { icon: "🎯", title: "Segmented Campaigns", desc: "Send the right message to the right customer. Regulars get loyalty offers, lapsed customers get win-back sequences, new leads get welcome flows." },

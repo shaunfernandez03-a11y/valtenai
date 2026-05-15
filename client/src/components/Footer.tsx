@@ -3,7 +3,7 @@
  * Design: Kinetic Gold — footer CTA + contact info + copyright
  */
 
-const AUDIT_URL = "https://forms.gle/ShiULd7toVTmDeuMA";
+const AUDIT_URL = "https://calendar.app.google/5VqGMRsABdJJZMdX8";
 
 export default function Footer() {
   return (

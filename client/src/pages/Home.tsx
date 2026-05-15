@@ -27,6 +27,7 @@ import PricingSection from "@/components/PricingSection";
 import ServicesSection from "@/components/ServicesSection";
 import StatsBar from "@/components/StatsBar";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import FounderSection from "@/components/FounderSection";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export default function Home() {
@@ -70,6 +71,7 @@ export default function Home() {
       <HowItWorksSection />
       <StatsBar />
       <TestimonialsSection />
+      <FounderSection />
       <PricingSection />
       <FAQSection />
       <Footer />

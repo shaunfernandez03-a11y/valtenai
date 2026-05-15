@@ -3,7 +3,7 @@ import DataStreamBackground from "@/components/DataStreamBackground";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const AUDIT_URL = "https://forms.gle/ShiULd7toVTmDeuMA";
+const AUDIT_URL = "https://calendar.app.google/5VqGMRsABdJJZMdX8";
 
 const features = [
   { icon: "⭐", title: "Automated Review Requests", desc: "Every customer automatically asked for a review at the perfect moment — right after a great experience. More requests means more reviews." },

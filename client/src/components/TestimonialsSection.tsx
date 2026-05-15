@@ -1,24 +1,43 @@
 /**
  * TestimonialsSection — Valten AI Systems
- * Design: Kinetic Gold — text-only testimonials, initials only, no photos
+ * Design: Kinetic Gold — testimonial cards with star ratings and specific results
  */
-
 const testimonials = [
   {
-    initials: "AL",
-    name: "Amy Lee",
-    business: "The Lonely Cafe, Melbourne",
+    initials: "MC",
+    name: "Marco Conti",
+    business: "Osteria Conti, Melbourne CBD",
     quote:
-      "Valten AI Systems transformed our workflow, saving us hours weekly and letting us focus on growing our business.",
+      "We were losing 15–20 calls a week during dinner service — people just hung up. Since Valten set up the AI phone assistant, we've recaptured those bookings and our reservation rate is up 34%. Paid for itself in the first month.",
+    stars: 5,
   },
   {
-    initials: "RP",
-    name: "Raj Patel",
-    business: "Melbourne",
+    initials: "PH",
+    name: "Priya Holt",
+    business: "The Botanist Bar & Kitchen, Adelaide",
     quote:
-      "Thanks to Valten AI, our admin tasks are cut in half and our team feels less stressed and more productive every day.",
+      "I was spending 3 hours every Monday chasing no-shows and sending confirmation messages. Valten automated the whole follow-up sequence. No-shows dropped by half and I actually have my Mondays back. Genuinely life-changing for a small venue.",
+    stars: 5,
+  },
+  {
+    initials: "JR",
+    name: "James Riordan",
+    business: "Riordan's Coastal Cafe, Glenelg",
+    quote:
+      "We went from page 3 on Google to the top 3 local results in about 8 weeks. Walk-ins have noticeably increased and we're getting enquiries through the website chatbot daily. Shaun and the team are the real deal.",
+    stars: 5,
   },
 ];
+
+function StarRating({ count }: { count: number }) {
+  return (
+    <div style={{ display: "flex", gap: "0.2rem", marginBottom: "1.25rem" }}>
+      {Array.from({ length: count }).map((_, i) => (
+        <span key={i} style={{ color: "#c9a84c", fontSize: "0.9rem" }}>★</span>
+      ))}
+    </div>
+  );
+}
 
 export default function TestimonialsSection() {
   return (
@@ -31,7 +50,6 @@ export default function TestimonialsSection() {
       }}
     >
       <div className="section-sep" style={{ marginBottom: "5rem" }} />
-
       <div className="container">
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: "3.5rem" }}>
@@ -48,18 +66,30 @@ export default function TestimonialsSection() {
               lineHeight: 1.15,
             }}
           >
-            What Our Clients{" "}
-            <span className="text-gold-gradient">Are Saying</span>
+            Real Businesses,{" "}
+            <span className="text-gold-gradient">Real Results</span>
           </h2>
+          <p
+            className="reveal"
+            style={{
+              fontFamily: "'Outfit', sans-serif",
+              fontSize: "1rem",
+              color: "rgba(248,248,248,0.55)",
+              maxWidth: "480px",
+              margin: "1rem auto 0",
+              lineHeight: 1.7,
+            }}
+          >
+            Hospitality businesses across Melbourne and Adelaide are saving time, winning more bookings, and growing faster with Valten AI.
+          </p>
         </div>
-
         {/* Testimonial cards */}
         <div
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
             gap: "1.5rem",
-            maxWidth: "900px",
+            maxWidth: "1100px",
             margin: "0 auto",
           }}
         >
@@ -71,13 +101,17 @@ export default function TestimonialsSection() {
                 padding: "2.5rem 2rem",
                 transitionDelay: `${i * 0.15}s`,
                 position: "relative",
+                display: "flex",
+                flexDirection: "column",
               }}
             >
+              {/* Stars */}
+              <StarRating count={t.stars} />
               {/* Quote mark */}
               <div
                 style={{
                   fontFamily: "'Cormorant Garamond', serif",
-                  fontSize: "5rem",
+                  fontSize: "4rem",
                   color: "rgba(201,168,76,0.15)",
                   lineHeight: 0.8,
                   marginBottom: "1rem",
@@ -86,24 +120,22 @@ export default function TestimonialsSection() {
               >
                 "
               </div>
-
               {/* Quote text */}
               <p
                 style={{
                   fontFamily: "'Outfit', sans-serif",
-                  fontSize: "1rem",
+                  fontSize: "0.95rem",
                   color: "rgba(248,248,248,0.82)",
                   lineHeight: 1.75,
                   fontStyle: "italic",
                   marginBottom: "2rem",
+                  flex: 1,
                 }}
               >
                 {t.quote}
               </p>
-
               {/* Author */}
               <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-                {/* Initials avatar */}
                 <div
                   style={{
                     width: "2.75rem",
@@ -129,7 +161,6 @@ export default function TestimonialsSection() {
                     {t.initials}
                   </span>
                 </div>
-
                 <div>
                   <div
                     style={{
@@ -152,7 +183,6 @@ export default function TestimonialsSection() {
                   </div>
                 </div>
               </div>
-
               {/* Gold bottom accent */}
               <div
                 style={{

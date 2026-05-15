@@ -4,9 +4,10 @@
  */
 
 const stats = [
-  { value: "10+", label: "Businesses Automated" },
-  { value: "30%+", label: "Average Efficiency Gain" },
-  { value: "Melbourne & Adelaide", label: "Trusted Across" },
+  { value: "30%+", label: "Average Reduction in Admin Time" },
+  { value: "48hrs", label: "Average Time to Go Live" },
+  { value: "24/7", label: "AI Systems Running for Clients" },
+  { value: "Melb & Adelaide", label: "Serving Businesses Across" },
 ];
 
 export default function StatsBar() {

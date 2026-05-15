@@ -3,7 +3,7 @@
  * Design: Kinetic Gold — 3 pricing tiers, gold accent on recommended (Growth)
  */
 
-const AUDIT_URL = "https://forms.gle/ShiULd7toVTmDeuMA";
+const AUDIT_URL = "https://calendar.app.google/5VqGMRsABdJJZMdX8";
 
 const plans = [
   {
