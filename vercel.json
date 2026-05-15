@@ -1,6 +1,6 @@
 {
-  "buildCommand": "pnpm run build",
+  "buildCommand": "echo 'using pre-built dist'",
   "outputDirectory": "dist",
-  "installCommand": "pnpm install",
+  "installCommand": "echo 'skip install'",
   "framework": null
 }
