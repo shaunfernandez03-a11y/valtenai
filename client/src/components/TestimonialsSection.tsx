@@ -96,7 +96,7 @@ export default function TestimonialsSection() {
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="card-dark reveal"
+              className="card-dark reveal-scale"
               style={{
                 padding: "2.5rem 2rem",
                 transitionDelay: `${i * 0.15}s`,

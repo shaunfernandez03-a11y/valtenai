@@ -28,6 +28,7 @@ import ServicesSection from "@/components/ServicesSection";
 import StatsBar from "@/components/StatsBar";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FounderSection from "@/components/FounderSection";
+import BeforeAfterSection from "@/components/BeforeAfterSection";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export default function Home() {
@@ -36,7 +37,7 @@ export default function Home() {
   // Re-run scroll reveal after mount to catch any elements already in view
   useEffect(() => {
     const timer = setTimeout(() => {
-      const elements = document.querySelectorAll(".reveal, .reveal-left");
+      const elements = document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale");
       elements.forEach((el) => {
         const rect = el.getBoundingClientRect();
         if (rect.top < window.innerHeight * 0.88) {
@@ -70,6 +71,7 @@ export default function Home() {
       <ServicesSection />
       <HowItWorksSection />
       <StatsBar />
+      <BeforeAfterSection />
       <TestimonialsSection />
       <FounderSection />
       <PricingSection />

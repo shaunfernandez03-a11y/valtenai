@@ -3,7 +3,7 @@
  * Design: Kinetic Gold — footer CTA + contact info + copyright
  */
 
-const AUDIT_URL = "https://calendar.app.google/5VqGMRsABdJJZMdX8";
+const AUDIT_URL = "https://calendly.com/shaun-valtenai/30min";
 
 export default function Footer() {
   return (
@@ -66,7 +66,7 @@ export default function Footer() {
               lineHeight: 1.7,
             }}
           >
-            Book your free 15-minute audit and discover exactly how much time and revenue your business is leaving on the table.
+            Book your free 30-minute audit and discover exactly how much time and revenue your business is leaving on the table.
           </p>
 
           {/* CTA Button */}
@@ -78,7 +78,7 @@ export default function Footer() {
               className="btn-gold"
               style={{ fontSize: "0.8rem", padding: "1.1rem 2.6rem" }}
             >
-              Book Your Free 15-Min Audit
+              Book Your Free 30-Min Audit
               <span style={{ fontSize: "1rem" }}>→</span>
             </a>
           </div>

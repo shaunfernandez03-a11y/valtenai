@@ -3,7 +3,7 @@
  * Design: Kinetic Gold — founder story with photo, builds trust and humanises the brand
  */
 
-const BOOKING_URL = "https://calendar.app.google/5VqGMRsABdJJZMdX8";
+const BOOKING_URL = "https://calendly.com/shaun-valtenai/30min";
 
 export default function FounderSection() {
   return (
@@ -43,7 +43,7 @@ export default function FounderSection() {
         >
           {/* Photo */}
           <div
-            className="reveal"
+            className="reveal-left"
             style={{
               position: "relative",
               display: "flex",
@@ -163,7 +163,7 @@ export default function FounderSection() {
                 className="btn-gold"
                 style={{ fontSize: "0.8rem", padding: "1rem 2.2rem" }}
               >
-                Book a Free 15-Min Call with Shaun →
+                Book a Free 30-Min Call with Shaun →
               </a>
             </div>
           </div>

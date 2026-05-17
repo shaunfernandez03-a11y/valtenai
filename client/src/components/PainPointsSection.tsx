@@ -3,6 +3,8 @@
  * Design: Kinetic Gold — 3 pain point cards with gold left border accent
  */
 
+import TiltCard from "./TiltCard";
+
 const painPoints = [
   {
     icon: "📞",
@@ -66,9 +68,9 @@ export default function PainPointsSection() {
           }}
         >
           {painPoints.map((p, i) => (
-            <div
+            <TiltCard
               key={i}
-              className={`card-dark card-gold-border reveal`}
+              className="card-dark card-gold-border reveal"
               style={{
                 padding: "2rem 1.75rem",
                 transitionDelay: `${i * 0.12}s`,
@@ -105,7 +107,7 @@ export default function PainPointsSection() {
               >
                 {p.desc}
               </p>
-            </div>
+            </TiltCard>
           ))}
         </div>
       </div>

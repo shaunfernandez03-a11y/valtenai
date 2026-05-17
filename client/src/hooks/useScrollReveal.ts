@@ -1,6 +1,7 @@
 /**
  * useScrollReveal — Valten AI Systems
  * Intersection Observer hook for scroll-triggered reveal animations.
+ * Handles: .reveal, .reveal-left, .reveal-right, .reveal-scale
  */
 
 import { useEffect } from "react";
@@ -15,10 +16,12 @@ export function useScrollReveal() {
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
     );
 
-    const elements = document.querySelectorAll(".reveal, .reveal-left");
+    const elements = document.querySelectorAll(
+      ".reveal, .reveal-left, .reveal-right, .reveal-scale"
+    );
     elements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();

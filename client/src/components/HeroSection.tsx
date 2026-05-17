@@ -1,17 +1,28 @@
 /**
  * HeroSection — Valten AI Systems
  * Design: Kinetic Gold — full-width canvas hero with pendulum logo
- * 
+ *
  * - HTML5 canvas: blue-white droplets → gold pixel particles at 55%
  * - Pendulum logo: rotate ±12deg, 3.5s, transform-origin 50% 28%
  * - Staggered fade-up content overlay
+ * - Typewriter/cycling headline effect
  */
 
+import { useEffect, useRef, useState } from "react";
 import { useTheme } from "../contexts/ThemeContext";
 import HeroCanvas from "./HeroCanvas";
+import LuxuryGlow from "./LuxuryGlow";
 
 const LOGO_URL = "/logo.png";
-const AUDIT_URL = "https://calendar.app.google/5VqGMRsABdJJZMdX8";
+const AUDIT_URL = "https://calendly.com/shaun-valtenai/30min";
+
+const CYCLING_PHRASES = [
+  "Business Growth",
+  "Lead Generation",
+  "Booking Pipeline",
+  "Customer Follow-Up",
+  "Online Reputation",
+];
 
 const bullets = [
   "GET FOUND ON GOOGLE FIRST",
@@ -20,9 +31,50 @@ const bullets = [
   "SAVE 10+ HOURS EVERY WEEK",
 ];
 
+function useTypewriter(phrases: string[], typingSpeed = 70, deletingSpeed = 40, pauseMs = 2200) {
+  const [displayed, setDisplayed] = useState("");
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    const current = phrases[phraseIndex];
+
+    const tick = () => {
+      if (!isDeleting) {
+        // Typing
+        if (displayed.length < current.length) {
+          setDisplayed(current.slice(0, displayed.length + 1));
+          timeoutRef.current = setTimeout(tick, typingSpeed);
+        } else {
+          // Pause then start deleting
+          timeoutRef.current = setTimeout(() => setIsDeleting(true), pauseMs);
+        }
+      } else {
+        // Deleting
+        if (displayed.length > 0) {
+          setDisplayed(current.slice(0, displayed.length - 1));
+          timeoutRef.current = setTimeout(tick, deletingSpeed);
+        } else {
+          setIsDeleting(false);
+          setPhraseIndex((i) => (i + 1) % phrases.length);
+        }
+      }
+    };
+
+    timeoutRef.current = setTimeout(tick, isDeleting ? deletingSpeed : typingSpeed);
+    return () => { if (timeoutRef.current) clearTimeout(timeoutRef.current); };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [displayed, isDeleting, phraseIndex]);
+
+  return displayed;
+}
+
 export default function HeroSection() {
   const { theme, toggleTheme } = useTheme();
   const isDark = theme === "dark";
+  const typedText = useTypewriter(CYCLING_PHRASES);
+
   return (
     <section
       id="hero"
@@ -57,6 +109,9 @@ export default function HeroSection() {
           pointerEvents: "none",
         }}
       />
+      {/* Luxury glow spotlight */}
+      <LuxuryGlow position="top-center" intensity="medium" color="gold" />
+
       {/* Radial glow overlay */}
       <div
         style={{
@@ -67,11 +122,11 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Logo top right — fixed, follows scroll, click to toggle theme */}
+      {/* Logo top right — absolute in hero, stays put on scroll */}
       <div
         style={{
-          position: "fixed",
-          top: "5rem",
+          position: "absolute",
+          top: "5.5rem",
           right: "2rem",
           zIndex: 50,
           opacity: 0,
@@ -145,7 +200,7 @@ export default function HeroSection() {
           Intelligent Systems for Growing Businesses
         </p>
 
-        {/* H1 */}
+        {/* H1 with typewriter cycling phrase */}
         <h1
           className="fade-in-up delay-200"
           style={{
@@ -159,7 +214,25 @@ export default function HeroSection() {
           }}
         >
           Automate Your{" "}
-          <span className="text-gold-gradient">Business Growth</span>
+          <br />
+          <span
+            className="text-gold-gradient"
+            style={{ display: "inline-block", minHeight: "1.2em" }}
+          >
+            {typedText}
+            <span
+              style={{
+                display: "inline-block",
+                width: "3px",
+                height: "0.85em",
+                background: isDark ? "#c9a84c" : "#a07828",
+                marginLeft: "3px",
+                verticalAlign: "middle",
+                borderRadius: "2px",
+                animation: "cursorBlink 0.75s step-end infinite",
+              }}
+            />
+          </span>
         </h1>
 
         {/* Gold decorative divider */}
@@ -234,7 +307,7 @@ export default function HeroSection() {
             className="btn-gold"
             style={{ fontSize: "0.78rem", padding: "1rem 2.4rem" }}
           >
-            Book Your Free 15-Min Call
+            Book Your Free 30-Min Call
             <span style={{ fontSize: "1rem" }}>→</span>
           </a>
         </div>

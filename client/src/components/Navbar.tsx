@@ -7,7 +7,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "wouter";
 
-const AUDIT_URL = "https://calendar.app.google/5VqGMRsABdJJZMdX8";
+const AUDIT_URL = "https://calendly.com/shaun-valtenai/30min";
 
 const SERVICES_ITEMS = [
   { label: "AI Phone Assistant",          href: "/services/ai-phone-assistant", desc: "Never miss a call or booking" },
@@ -211,7 +211,14 @@ export default function Navbar() {
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8">
-            <DropdownTrigger label="Services"  items={SERVICES_ITEMS} />
+            <a
+              href="/services"
+              style={LINK_STYLE}
+              onMouseEnter={(e) => ((e.target as HTMLAnchorElement).style.color = "#c9a84c")}
+              onMouseLeave={(e) => ((e.target as HTMLAnchorElement).style.color = "rgba(248,248,248,0.75)")}
+            >
+              Services
+            </a>
             <DropdownTrigger label="Marketing" items={MARKETING_ITEMS} />
 
             {plainLinks.map((link) => (
@@ -244,21 +251,11 @@ export default function Navbar() {
         {menuOpen && (
           <div style={{ background: "rgba(10,15,30,0.98)", borderTop: "1px solid rgba(201,168,76,0.15)", padding: "1rem 0 1.5rem" }}>
 
-            {/* Services accordion */}
-            <button onClick={() => setMobileServicesOpen((o) => !o)}
-              style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", fontFamily: "'Outfit', sans-serif", fontSize: "1rem", fontWeight: 500, color: "rgba(248,248,248,0.8)", background: "none", border: "none", padding: "0.75rem 0", borderBottom: "1px solid rgba(201,168,76,0.08)", cursor: "pointer" }}>
-              Services <ChevronIcon open={mobileServicesOpen} />
-            </button>
-            {mobileServicesOpen && (
-              <div style={{ paddingLeft: "1rem", background: "rgba(201,168,76,0.03)" }}>
-                {SERVICES_ITEMS.map((item) => (
-                  <a key={item.label} href={item.href} onClick={() => setMenuOpen(false)}
-                    style={{ display: "block", fontFamily: "'Outfit', sans-serif", fontSize: "0.88rem", color: "rgba(248,248,248,0.65)", textDecoration: "none", padding: "0.6rem 0", borderBottom: "1px solid rgba(201,168,76,0.05)" }}>
-                    <span style={{ color: "#c9a84c", marginRight: "0.5rem" }}>›</span>{item.label}
-                  </a>
-                ))}
-              </div>
-            )}
+            {/* Services link */}
+            <a href="/services" onClick={() => setMenuOpen(false)}
+              style={{ display: "block", fontFamily: "'Outfit', sans-serif", fontSize: "1rem", fontWeight: 500, color: "rgba(248,248,248,0.8)", textDecoration: "none", padding: "0.75rem 0", borderBottom: "1px solid rgba(201,168,76,0.08)" }}>
+              Services
+            </a>
 
             {/* Marketing accordion */}
             <button onClick={() => setMobileMarketingOpen((o) => !o)}

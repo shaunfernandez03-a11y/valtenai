@@ -3,12 +3,17 @@
  * Design: Kinetic Gold — 3 pricing tiers, gold accent on recommended (Growth)
  */
 
-const AUDIT_URL = "https://calendar.app.google/5VqGMRsABdJJZMdX8";
+import TiltCard from "./TiltCard";
+import LuxuryGlow from "./LuxuryGlow";
+
+const AUDIT_URL = "https://calendly.com/shaun-valtenai/30min";
 
 const plans = [
   {
     name: "Starter",
     tagline: "Perfect for new venues getting started with AI",
+    price: "$499 / mo",
+    priceStyle: "large",
     features: [
       "AI Chatbot & Virtual Assistant",
       "Google Business Profile Setup",
@@ -21,6 +26,8 @@ const plans = [
   {
     name: "Growth",
     tagline: "The complete system for scaling hospitality businesses",
+    price: "Custom pricing — book a free audit",
+    priceStyle: "small",
     features: [
       "Everything in Starter",
       "AI Phone Assistant (24/7)",
@@ -34,6 +41,8 @@ const plans = [
   {
     name: "Pro",
     tagline: "Enterprise-grade automation for multi-location venues",
+    price: "Tailored to Your Business",
+    priceStyle: "small",
     features: [
       "Everything in Growth",
       "Multi-location Management",
@@ -56,6 +65,9 @@ export default function PricingSection() {
         position: "relative",
       }}
     >
+      {/* Luxury glow spotlight */}
+      <LuxuryGlow position="bottom-center" intensity="subtle" color="gold" />
+
       <div className="section-sep" style={{ marginBottom: "5rem" }} />
 
       <div className="container">
@@ -103,9 +115,10 @@ export default function PricingSection() {
           }}
         >
           {plans.map((plan, i) => (
-            <div
+            <TiltCard
               key={i}
               className="reveal"
+              maxTilt={6}
               style={{
                 transitionDelay: `${i * 0.12}s`,
                 position: "relative",
@@ -185,13 +198,14 @@ export default function PricingSection() {
                   <span
                     style={{
                       fontFamily: "'Space Mono', monospace",
-                      fontSize: "0.65rem",
+                      fontSize: plan.priceStyle === "large" ? "1.1rem" : "0.65rem",
                       letterSpacing: "0.12em",
                       textTransform: "uppercase",
                       color: "#c9a84c",
+                      fontWeight: 400,
                     }}
                   >
-                    Custom pricing — book a free audit
+                    {plan.price}
                   </span>
                 </div>
 
@@ -245,7 +259,7 @@ export default function PricingSection() {
                   Get Started
                 </a>
               </div>
-            </div>
+            </TiltCard>
           ))}
         </div>
       </div>

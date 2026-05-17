@@ -3,6 +3,9 @@
  * Design: Kinetic Gold — 4 service icon cards on dark background
  */
 
+import TiltCard from "./TiltCard";
+import LuxuryGlow from "./LuxuryGlow";
+
 const SERVICES_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663572697914/PdGDYhLxnpe2BZEHET7NRV/valten-services-bg-NUVxyWKQTd6SaVMc6UFA82.webp";
 
 const services = [
@@ -69,6 +72,9 @@ export default function ServicesSection() {
         overflow: "hidden",
       }}
     >
+      {/* Luxury glow spotlight */}
+      <LuxuryGlow position="center" intensity="subtle" color="gold" />
+
       {/* Subtle background texture */}
       <div
         style={{
@@ -128,7 +134,7 @@ export default function ServicesSection() {
           }}
         >
           {services.map((s, i) => (
-            <div
+            <TiltCard
               key={i}
               className="card-dark reveal"
               style={{
@@ -186,7 +192,7 @@ export default function ServicesSection() {
               >
                 {s.desc}
               </p>
-            </div>
+            </TiltCard>
           ))}
         </div>
       </div>

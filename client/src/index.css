@@ -117,6 +117,20 @@ html:not(.dark) {
   h1, h2, h3 {
     font-family: 'Cormorant Garamond', serif;
     color: var(--t-text);
+    letter-spacing: 0.05em;
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    letter-spacing: 0.08em;
+  }
+  h2 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    letter-spacing: 0.06em;
+  }
+  h3 {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    letter-spacing: 0.05em;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -290,6 +304,40 @@ html:not(.dark) {
     animation: fadeInUp 0.9s ease forwards;
   }
 
+  /* Page transition */
+  @keyframes pageEnter {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* AI demo widget animations */
+  @keyframes widgetPulse {
+    0%, 100% { box-shadow: 0 4px 24px rgba(201,168,76,0.45); }
+    50% { box-shadow: 0 4px 36px rgba(201,168,76,0.75), 0 0 0 8px rgba(201,168,76,0.12); }
+  }
+
+  @keyframes msgEnter {
+    from { opacity: 0; transform: translateY(6px) scale(0.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @keyframes typingDot {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+    30% { transform: translateY(-4px); opacity: 1; }
+  }
+
+  /* Typewriter cursor blink */
+  @keyframes cursorBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
   /* Stagger delays */
   .delay-100 { animation-delay: 0.1s; opacity: 0; }
   .delay-200 { animation-delay: 0.2s; opacity: 0; }
@@ -308,8 +356,8 @@ html:not(.dark) {
   /* Scroll reveal */
   .reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transform: translateY(40px);
+    transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .reveal.visible {
     opacity: 1;
@@ -317,12 +365,30 @@ html:not(.dark) {
   }
   .reveal-left {
     opacity: 0;
-    transform: translateX(-30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transform: translateX(-40px);
+    transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .reveal-left.visible {
     opacity: 1;
     transform: translateX(0);
+  }
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .reveal-scale {
+    opacity: 0;
+    transform: scale(0.92) translateY(20px);
+    transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal-scale.visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
   }
 
   /* Gold text gradient */

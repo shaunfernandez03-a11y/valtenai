@@ -7,7 +7,7 @@ const steps = [
   {
     num: "01",
     title: "We Audit Your Business for Free",
-    desc: "Book a 15-minute call and we'll analyse your current setup — calls, bookings, online presence — and identify exactly where you're losing time and customers.",
+    desc: "Book a 30-minute call and we'll analyse your current setup — calls, bookings, online presence — and identify exactly where you're losing time and customers.",
     icon: "🔎",
   },
   {
@@ -66,25 +66,12 @@ export default function HowItWorksSection() {
             position: "relative",
           }}
         >
-          {/* Connecting line (desktop only) */}
-          <div
-            style={{
-              position: "absolute",
-              top: "3.5rem",
-              left: "calc(16.66% + 1.5rem)",
-              right: "calc(16.66% + 1.5rem)",
-              height: "1px",
-              background: "linear-gradient(90deg, transparent, rgba(201,168,76,0.3), rgba(201,168,76,0.3), transparent)",
-              pointerEvents: "none",
-            display: "block",
-          }}
-          className="hidden md:block"
-          />
+
 
           {steps.map((step, i) => (
             <div
               key={i}
-              className="reveal"
+              className="reveal-scale"
               style={{
                 padding: "2rem 2rem",
                 textAlign: "center",
@@ -174,10 +161,10 @@ export default function HowItWorksSection() {
         {/* CTA */}
         <div style={{ textAlign: "center", marginTop: "3rem" }} className="reveal">
           <a
-            href="https://calendar.app.google/5VqGMRsABdJJZMdX8"
+            href="https://calendly.com/shaun-valtenai/30min"
             target="_blank"
             rel="noopener noreferrer"
-            onClick={(e) => { e.preventDefault(); window.open("https://calendar.app.google/5VqGMRsABdJJZMdX8", "_blank", "noopener,noreferrer"); }}
+            onClick={(e) => { e.preventDefault(); window.open("https://calendly.com/shaun-valtenai/30min", "_blank", "noopener,noreferrer"); }}
             className="btn-gold"
           >
             Start With a Free Audit

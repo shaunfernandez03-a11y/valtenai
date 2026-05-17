@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     q: "How do I get started?",
-    a: "Simply book your free 15-minute audit using the button on this page. We'll review your current setup, identify your biggest opportunities, and recommend the right system for your business — with no obligation to proceed.",
+    a: "Simply book your free 30-minute audit using the button on this page. We'll review your current setup, identify your biggest opportunities, and recommend the right system for your business — with no obligation to proceed.",
   },
 ];
 

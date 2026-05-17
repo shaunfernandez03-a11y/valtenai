@@ -231,11 +231,11 @@ export default function CircuitBackground() {
     <canvas
       ref={canvasRef}
       style={{
-        position: "fixed",
+        position: "absolute",
         top: 0,
         left: 0,
         width: "100vw",
-        height: "100vh",
+        height: "100%",
         pointerEvents: "none",
         zIndex: 0,
       }}
