@@ -8,6 +8,7 @@ import { useEffect, useRef } from "react";
 
 export default function NeuralNetworkBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const mouseRef = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -19,6 +20,12 @@ export default function NeuralNetworkBackground() {
     if (!ctx) return;
 
     let rafId: number;
+
+    // Track mouse for repulsion effect
+    const handleMouseMove = (e: MouseEvent) => {
+      mouseRef.current = { x: e.clientX, y: e.clientY };
+    };
+    window.addEventListener("mousemove", handleMouseMove);
 
     const resize = () => {
       canvas.width  = window.innerWidth;
@@ -75,6 +82,19 @@ export default function NeuralNetworkBackground() {
       if (n.x > W())  { n.x = W();  n.vx *= -1; }
       if (n.y < 0)    { n.y = 0;    n.vy *= -1; }
       if (n.y > H())  { n.y = H();  n.vy *= -1; }
+
+      // Repel from mouse
+      const mouse = mouseRef.current;
+      const mdx = n.x - mouse.x;
+      const mdy = n.y - mouse.y;
+      const mdist = Math.hypot(mdx, mdy);
+      const repelDist = 220;
+      if (mdist < repelDist && mdist > 0) {
+        const angle = Math.atan2(mdy, mdx);
+        const force = (1 - mdist / repelDist) * 0.015;
+        n.vx += Math.cos(angle) * force;
+        n.vy += Math.sin(angle) * force;
+      }
 
       // Very slight velocity drift to keep motion organic
       n.vx += (Math.random() - 0.5) * 0.008;
@@ -172,6 +192,7 @@ export default function NeuralNetworkBackground() {
     return () => {
       cancelAnimationFrame(rafId);
       window.removeEventListener("resize", resize);
+      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 
@@ -182,7 +203,7 @@ export default function NeuralNetworkBackground() {
         position: "absolute",
         top: 0,
         left: 0,
-        width: "100vw",
+        width: "100%",
         height: "100%",
         pointerEvents: "none",
         zIndex: 0,

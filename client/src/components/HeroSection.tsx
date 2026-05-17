@@ -11,6 +11,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "../contexts/ThemeContext";
 import HeroCanvas from "./HeroCanvas";
+import NeuralNetworkBackground from "./NeuralNetworkBackground";
 import LuxuryGlow from "./LuxuryGlow";
 
 const LOGO_URL = "/logo.png";
@@ -92,6 +93,11 @@ export default function HeroSection() {
         transition: "background 0.4s ease",
       }}
     >
+      {/* Neural Network Background — cinematic AI visualization */}
+      <div style={{ opacity: isDark ? 1 : 0, transition: "opacity 0.4s ease", position: "absolute", inset: 0, pointerEvents: "none" }}>
+        <NeuralNetworkBackground />
+      </div>
+
       {/* Canvas animation — dark mode only */}
       <div style={{ opacity: isDark ? 1 : 0, transition: "opacity 0.4s ease", position: "absolute", inset: 0, pointerEvents: "none" }}>
         <HeroCanvas />
